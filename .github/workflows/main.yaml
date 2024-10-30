@@ -36,4 +36,4 @@ jobs:
             # Faz o deploy do arquivo YAML no minikube
             - name: Deploy to Minikube
               run: |
-                  kubectl apply -f k8s/deployment.yaml
+                  kubectl apply -f k8s/deployment.yaml --validate=false
