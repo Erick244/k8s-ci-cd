@@ -26,14 +26,3 @@ jobs:
               run: |
                   docker build -t ${{ secrets.DOCKER_USERNAME }}/k8s-ci-cd:latest . 
                   docker push ${{ secrets.DOCKER_USERNAME }}/k8s-ci-cd:latest
-
-            # Inicia o Kubernetes
-            - name: Set up K8s
-              uses: azure/setup-kubectl@v1
-              with:
-                  version: "latest"
-
-            # Faz o deploy do arquivo YAML no minikube
-            - name: Deploy to Minikube
-              run: |
-                  kubectl apply -f k8s/deployment.yaml --validate=false
